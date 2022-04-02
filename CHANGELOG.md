@@ -1,3 +1,8 @@
+## 0.0.5
+
+* sync api change
+
+
 ## 0.0.4
 
 * Nothing change, only update readme
