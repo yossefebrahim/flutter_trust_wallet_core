@@ -11,7 +11,7 @@ class MainActivity: FlutterActivity() {
     }
 }
  ```
-in your android project MainActivity.ky file
+in your android project MainActivity.kt file
 
 minSdk require >=23
 
