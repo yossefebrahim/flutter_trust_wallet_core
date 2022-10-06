@@ -1,11 +1,9 @@
 part of trust_wallet_core_ffi;
 
-/// trust wallet core
-
 /// Coin type for Level 2 of BIP44.
 ///
-/// - SeeAlso: https://github.com/satoshilabs/slips/blob/master/slip-0044.md
- class TWCoinType {
+/// \see https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+class TWCoinType {
   static const int TWCoinTypeAeternity = 457;
   static const int TWCoinTypeAion = 425;
   static const int TWCoinTypeBinance = 714;
@@ -14,7 +12,7 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeBitcoinCash = 145;
   static const int TWCoinTypeBitcoinGold = 156;
   static const int TWCoinTypeCallisto = 820;
-  static const int TWCoinTypeCardano = 1815;
+  static const int TWCoinTypeCardano = 1815; // Note: Cardano Shelley testnet uses purpose 1852 (not 44) 1852/1815
   static const int TWCoinTypeCosmos = 118;
   static const int TWCoinTypeDash = 5;
   static const int TWCoinTypeDecred = 42;
@@ -53,7 +51,7 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeViacoin = 14;
   static const int TWCoinTypeWanchain = 5718350;
   static const int TWCoinTypeZcash = 133;
-  static const int TWCoinTypeZcoin = 136;
+  static const int TWCoinTypeFiro = 136;
   static const int TWCoinTypeZilliqa = 313;
   static const int TWCoinTypeZelcash = 19167;
   static const int TWCoinTypeRavencoin = 175;
@@ -77,8 +75,33 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeECOChain = 10000553;
   static const int TWCoinTypeAvalancheCChain = 10009000;
   static const int TWCoinTypeXDai = 10000100;
+  static const int TWCoinTypeFantom = 10000250;
+  static const int TWCoinTypeCryptoOrg = 394;
+  static const int TWCoinTypeCelo = 52752;
+  static const int TWCoinTypeRonin = 10002020;
+  static const int TWCoinTypeOsmosis = 10000118;
+  static const int TWCoinTypeECash = 899;
+  static const int TWCoinTypeCronosChain = 10000025;
+  static const int TWCoinTypeSmartBitcoinCash = 10000145;
+  static const int TWCoinTypeKuCoinCommunityChain = 10000321;
+  static const int TWCoinTypeBoba = 10000288;
+  static const int TWCoinTypeMetis = 1001088;
+  static const int TWCoinTypeAurora = 1323161554;
+  static const int TWCoinTypeEvmos = 10009001;
+  static const int TWCoinTypeNativeEvmos = 20009001;
+  static const int TWCoinTypeMoonriver = 10001285;
+  static const int TWCoinTypeMoonbeam = 10001284;
+  static const int TWCoinTypeKavaEvm = 10002222;
+  static const int TWCoinTypeKlaytn = 10008217;
+  static const int TWCoinTypeMeter = 18000;
+  static const int TWCoinTypeOKXChain = 996;
+  static const int TWCoinTypeNervos = 309;
+  static const int TWCoinTypeEverscale = 396;
 
   /// Returns the blockchain for a coin type.
+  ///
+  /// \param coin A coin type
+  /// \return blockchain associated to the given coin type
   int TWCoinTypeBlockchain(
     int coin,
   ) {
@@ -91,6 +114,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeBlockchain _TWCoinTypeBlockchain = _TWCoinTypeBlockchain_ptr.asFunction<_dart_TWCoinTypeBlockchain>();
 
   /// Returns the purpose for a coin type.
+  ///
+  /// \param coin A coin type
+  /// \return purpose associated to the given coin type
   int TWCoinTypePurpose(
     int coin,
   ) {
@@ -103,6 +129,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypePurpose _TWCoinTypePurpose = _TWCoinTypePurpose_ptr.asFunction<_dart_TWCoinTypePurpose>();
 
   /// Returns the curve that should be used for a coin type.
+  ///
+  /// \param coin A coin type
+  /// \return curve that should be used for the given coin type
   int TWCoinTypeCurve(
     int coin,
   ) {
@@ -115,6 +144,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeCurve _TWCoinTypeCurve = _TWCoinTypeCurve_ptr.asFunction<_dart_TWCoinTypeCurve>();
 
   /// Returns the xpub HD version that should be used for a coin type.
+  ///
+  /// \param coin A coin type
+  /// \return xpub HD version that should be used for the given coin type
   int TWCoinTypeXpubVersion(
     int coin,
   ) {
@@ -127,6 +159,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeXpubVersion _TWCoinTypeXpubVersion = _TWCoinTypeXpubVersion_ptr.asFunction<_dart_TWCoinTypeXpubVersion>();
 
   /// Returns the xprv HD version that should be used for a coin type.
+  ///
+  /// \param coin A coin type
+  /// \return the xprv HD version that should be used for the given coin type.
   int TWCoinTypeXprvVersion(
     int coin,
   ) {
@@ -139,6 +174,10 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeXprvVersion _TWCoinTypeXprvVersion = _TWCoinTypeXprvVersion_ptr.asFunction<_dart_TWCoinTypeXprvVersion>();
 
   /// Validates an address string.
+  ///
+  /// \param coin A coin type
+  /// \param address A public address
+  /// \return true if the address is a valid public address of the given coin, false otherwise.
   int TWCoinTypeValidate(
     int coin,
     Pointer<Utf8> address,
@@ -153,6 +192,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeValidate _TWCoinTypeValidate = _TWCoinTypeValidate_ptr.asFunction<_dart_TWCoinTypeValidate>();
 
   /// Returns the default derivation path for a particular coin.
+  ///
+  /// \param coin A coin type
+  /// \return the default derivation path for the given coin type.
   Pointer<Utf8> TWCoinTypeDerivationPath(
     int coin,
   ) {
@@ -164,7 +206,30 @@ part of trust_wallet_core_ffi;
   late final _TWCoinTypeDerivationPath_ptr = _lookup<NativeFunction<_c_TWCoinTypeDerivationPath>>('TWCoinTypeDerivationPath');
   late final _dart_TWCoinTypeDerivationPath _TWCoinTypeDerivationPath = _TWCoinTypeDerivationPath_ptr.asFunction<_dart_TWCoinTypeDerivationPath>();
 
+  /// Returns the derivation path for a particular coin with the explicit given derivation.
+  ///
+  /// \param coin A coin type
+  /// \param derivation A derivation type
+  /// \return the derivation path for the given coin with the explicit given derivation
+  Pointer<Utf8> TWCoinTypeDerivationPathWithDerivation(
+    int coin,
+    int derivation,
+  ) {
+    return _TWCoinTypeDerivationPathWithDerivation(
+      coin,
+      derivation,
+    );
+  }
+
+  late final _TWCoinTypeDerivationPathWithDerivation_ptr = _lookup<NativeFunction<_c_TWCoinTypeDerivationPathWithDerivation>>('TWCoinTypeDerivationPathWithDerivation');
+  late final _dart_TWCoinTypeDerivationPathWithDerivation _TWCoinTypeDerivationPathWithDerivation =
+      _TWCoinTypeDerivationPathWithDerivation_ptr.asFunction<_dart_TWCoinTypeDerivationPathWithDerivation>();
+
   /// Derives the address for a particular coin from the private key.
+  ///
+  /// \param coin A coin type
+  /// \param privateKey A valid private key
+  /// \return Derived address for the given coin from the private key.
   Pointer<Utf8> TWCoinTypeDeriveAddress(
     int coin,
     Pointer<Void> privateKey,
@@ -179,6 +244,10 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeDeriveAddress _TWCoinTypeDeriveAddress = _TWCoinTypeDeriveAddress_ptr.asFunction<_dart_TWCoinTypeDeriveAddress>();
 
   /// Derives the address for a particular coin from the public key.
+  ///
+  /// \param coin A coin type
+  /// \param publicKey A valid public key
+  /// \return Derived address for the given coin from the public key.
   Pointer<Utf8> TWCoinTypeDeriveAddressFromPublicKey(
     int coin,
     Pointer<Void> publicKey,
@@ -194,6 +263,9 @@ part of trust_wallet_core_ffi;
       _TWCoinTypeDeriveAddressFromPublicKey_ptr.asFunction<_dart_TWCoinTypeDeriveAddressFromPublicKey>();
 
   /// HRP for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return HRP of the given coin type.
   int TWCoinTypeHRP(
     int coin,
   ) {
@@ -206,6 +278,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeHRP _TWCoinTypeHRP = _TWCoinTypeHRP_ptr.asFunction<_dart_TWCoinTypeHRP>();
 
   /// P2PKH prefix for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return P2PKH prefix for the given coin type
   int TWCoinTypeP2pkhPrefix(
     int coin,
   ) {
@@ -218,6 +293,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeP2pkhPrefix _TWCoinTypeP2pkhPrefix = _TWCoinTypeP2pkhPrefix_ptr.asFunction<_dart_TWCoinTypeP2pkhPrefix>();
 
   /// P2SH prefix for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return P2SH prefix for the given coin type
   int TWCoinTypeP2shPrefix(
     int coin,
   ) {
@@ -230,6 +308,9 @@ part of trust_wallet_core_ffi;
   late final _dart_TWCoinTypeP2shPrefix _TWCoinTypeP2shPrefix = _TWCoinTypeP2shPrefix_ptr.asFunction<_dart_TWCoinTypeP2shPrefix>();
 
   /// Static prefix for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return Static prefix for the given coin type
   int TWCoinTypeStaticPrefix(
     int coin,
   ) {
@@ -241,7 +322,26 @@ part of trust_wallet_core_ffi;
   late final _TWCoinTypeStaticPrefix_ptr = _lookup<NativeFunction<_c_TWCoinTypeStaticPrefix>>('TWCoinTypeStaticPrefix');
   late final _dart_TWCoinTypeStaticPrefix _TWCoinTypeStaticPrefix = _TWCoinTypeStaticPrefix_ptr.asFunction<_dart_TWCoinTypeStaticPrefix>();
 
-  /// Static prefix for this coin type
+  /// ChainID for this coin type.
+  ///
+  /// \param coin A coin type
+  /// \return ChainID for the given coin type.
+  /// \note Caller must free returned object.
+  Pointer<Utf8> TWCoinTypeChainId(
+    int coin,
+  ) {
+    return _TWCoinTypeChainId(
+      coin,
+    );
+  }
+
+  late final _TWCoinTypeChainId_ptr = _lookup<NativeFunction<_c_TWCoinTypeChainId>>('TWCoinTypeChainId');
+  late final _dart_TWCoinTypeChainId _TWCoinTypeChainId = _TWCoinTypeChainId_ptr.asFunction<_dart_TWCoinTypeChainId>();
+
+  /// SLIP-0044 id for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return SLIP-0044 id for the given coin type
   int TWCoinTypeSlip44Id(
     int coin,
   ) {
@@ -252,6 +352,21 @@ part of trust_wallet_core_ffi;
 
   late final _TWCoinTypeSlip44Id_ptr = _lookup<NativeFunction<_c_TWCoinTypeSlip44Id>>('TWCoinTypeSlip44Id');
   late final _dart_TWCoinTypeSlip44Id _TWCoinTypeSlip44Id = _TWCoinTypeSlip44Id_ptr.asFunction<_dart_TWCoinTypeSlip44Id>();
+
+  /// public key type for this coin type
+  ///
+  /// \param coin A coin type
+  /// \return public key type for the given coin type
+  int TWCoinTypePublicKeyType(
+    int coin,
+  ) {
+    return _TWCoinTypePublicKeyType(
+      coin,
+    );
+  }
+
+  late final _TWCoinTypePublicKeyType_ptr = _lookup<NativeFunction<_c_TWCoinTypePublicKeyType>>('TWCoinTypePublicKeyType');
+  late final _dart_TWCoinTypePublicKeyType _TWCoinTypePublicKeyType = _TWCoinTypePublicKeyType_ptr.asFunction<_dart_TWCoinTypePublicKeyType>();
 }
 
 typedef _c_TWCoinTypeBlockchain = Int32 Function(
@@ -312,6 +427,16 @@ typedef _dart_TWCoinTypeDerivationPath = Pointer<Utf8> Function(
   int coin,
 );
 
+typedef _c_TWCoinTypeDerivationPathWithDerivation = Pointer<Utf8> Function(
+  Int32 coin,
+  Int32 derivation,
+);
+
+typedef _dart_TWCoinTypeDerivationPathWithDerivation = Pointer<Utf8> Function(
+  int coin,
+  int derivation,
+);
+
 typedef _c_TWCoinTypeDeriveAddress = Pointer<Utf8> Function(
   Int32 coin,
   Pointer<Void> privateKey,
@@ -364,10 +489,26 @@ typedef _dart_TWCoinTypeStaticPrefix = int Function(
   int coin,
 );
 
+typedef _c_TWCoinTypeChainId = Pointer<Utf8> Function(
+  Int32 coin,
+);
+
+typedef _dart_TWCoinTypeChainId = Pointer<Utf8> Function(
+  int coin,
+);
+
 typedef _c_TWCoinTypeSlip44Id = Int32 Function(
   Int32 coin,
 );
 
 typedef _dart_TWCoinTypeSlip44Id = int Function(
+  int coin,
+);
+
+typedef _c_TWCoinTypePublicKeyType = Int32 Function(
+  Int32 coin,
+);
+
+typedef _dart_TWCoinTypePublicKeyType = int Function(
   int coin,
 );
