@@ -13,6 +13,7 @@ import 'package:protobuf/protobuf.dart' as $pb;
 import 'Bitcoin.pb.dart' as $1;
 import 'Ethereum.pb.dart' as $2;
 import 'Binance.pb.dart' as $3;
+import 'Cosmos.pb.dart' as $4;
 
 import 'THORChainSwap.pbenum.dart';
 
@@ -363,6 +364,7 @@ enum SwapOutput_SigningInputOneof {
   bitcoin, 
   ethereum, 
   binance, 
+  cosmos, 
   notSet
 }
 
@@ -371,16 +373,18 @@ class SwapOutput extends $pb.GeneratedMessage {
     4 : SwapOutput_SigningInputOneof.bitcoin,
     5 : SwapOutput_SigningInputOneof.ethereum,
     6 : SwapOutput_SigningInputOneof.binance,
+    7 : SwapOutput_SigningInputOneof.cosmos,
     0 : SwapOutput_SigningInputOneof.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SwapOutput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.THORChainSwap.Proto'), createEmptyInstance: create)
-    ..oo(0, [4, 5, 6])
+    ..oo(0, [4, 5, 6, 7])
     ..e<Chain>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fromChain', $pb.PbFieldType.OE, defaultOrMaker: Chain.THOR, valueOf: Chain.valueOf, enumValues: Chain.values)
     ..e<Chain>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'toChain', $pb.PbFieldType.OE, defaultOrMaker: Chain.THOR, valueOf: Chain.valueOf, enumValues: Chain.values)
     ..aOM<Error>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: Error.create)
     ..aOM<$1.SigningInput>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'bitcoin', subBuilder: $1.SigningInput.create)
     ..aOM<$2.SigningInput>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ethereum', subBuilder: $2.SigningInput.create)
     ..aOM<$3.SigningInput>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'binance', subBuilder: $3.SigningInput.create)
+    ..aOM<$4.SigningInput>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cosmos', subBuilder: $4.SigningInput.create)
     ..hasRequiredFields = false
   ;
 
@@ -392,6 +396,7 @@ class SwapOutput extends $pb.GeneratedMessage {
     $1.SigningInput? bitcoin,
     $2.SigningInput? ethereum,
     $3.SigningInput? binance,
+    $4.SigningInput? cosmos,
   }) {
     final _result = create();
     if (fromChain != null) {
@@ -411,6 +416,9 @@ class SwapOutput extends $pb.GeneratedMessage {
     }
     if (binance != null) {
       _result.binance = binance;
+    }
+    if (cosmos != null) {
+      _result.cosmos = cosmos;
     }
     return _result;
   }
@@ -499,5 +507,16 @@ class SwapOutput extends $pb.GeneratedMessage {
   void clearBinance() => clearField(6);
   @$pb.TagNumber(6)
   $3.SigningInput ensureBinance() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $4.SigningInput get cosmos => $_getN(6);
+  @$pb.TagNumber(7)
+  set cosmos($4.SigningInput v) { setField(7, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasCosmos() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearCosmos() => clearField(7);
+  @$pb.TagNumber(7)
+  $4.SigningInput ensureCosmos() => $_ensure(6);
 }
 

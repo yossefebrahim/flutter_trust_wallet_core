@@ -10,6 +10,10 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'Filecoin.pbenum.dart';
+
+export 'Filecoin.pbenum.dart';
+
 class SigningInput extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SigningInput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Filecoin.Proto'), createEmptyInstance: create)
     ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey', $pb.PbFieldType.OY)
@@ -19,6 +23,8 @@ class SigningInput extends $pb.GeneratedMessage {
     ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gasLimit')
     ..a<$core.List<$core.int>>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gasFeeCap', $pb.PbFieldType.OY)
     ..a<$core.List<$core.int>>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gasPremium', $pb.PbFieldType.OY)
+    ..a<$core.List<$core.int>>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'params', $pb.PbFieldType.OY)
+    ..e<DerivationType>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'derivation', $pb.PbFieldType.OE, defaultOrMaker: DerivationType.SECP256K1, valueOf: DerivationType.valueOf, enumValues: DerivationType.values)
     ..hasRequiredFields = false
   ;
 
@@ -31,6 +37,8 @@ class SigningInput extends $pb.GeneratedMessage {
     $fixnum.Int64? gasLimit,
     $core.List<$core.int>? gasFeeCap,
     $core.List<$core.int>? gasPremium,
+    $core.List<$core.int>? params,
+    DerivationType? derivation,
   }) {
     final _result = create();
     if (privateKey != null) {
@@ -53,6 +61,12 @@ class SigningInput extends $pb.GeneratedMessage {
     }
     if (gasPremium != null) {
       _result.gasPremium = gasPremium;
+    }
+    if (params != null) {
+      _result.params = params;
+    }
+    if (derivation != null) {
+      _result.derivation = derivation;
     }
     return _result;
   }
@@ -139,21 +153,44 @@ class SigningInput extends $pb.GeneratedMessage {
   $core.bool hasGasPremium() => $_has(6);
   @$pb.TagNumber(7)
   void clearGasPremium() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.List<$core.int> get params => $_getN(7);
+  @$pb.TagNumber(8)
+  set params($core.List<$core.int> v) { $_setBytes(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasParams() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearParams() => clearField(8);
+
+  @$pb.TagNumber(9)
+  DerivationType get derivation => $_getN(8);
+  @$pb.TagNumber(9)
+  set derivation(DerivationType v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasDerivation() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearDerivation() => clearField(9);
 }
 
 class SigningOutput extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SigningOutput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Filecoin.Proto'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'json')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'errorMessage')
     ..hasRequiredFields = false
   ;
 
   SigningOutput._() : super();
   factory SigningOutput({
     $core.String? json,
+    $core.String? errorMessage,
   }) {
     final _result = create();
     if (json != null) {
       _result.json = json;
+    }
+    if (errorMessage != null) {
+      _result.errorMessage = errorMessage;
     }
     return _result;
   }
@@ -186,5 +223,14 @@ class SigningOutput extends $pb.GeneratedMessage {
   $core.bool hasJson() => $_has(0);
   @$pb.TagNumber(1)
   void clearJson() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get errorMessage => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set errorMessage($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasErrorMessage() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearErrorMessage() => clearField(2);
 }
 

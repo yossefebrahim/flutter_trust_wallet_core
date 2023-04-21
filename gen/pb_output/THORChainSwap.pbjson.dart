@@ -16,11 +16,16 @@ const Chain$json = const {
     const {'1': 'BTC', '2': 1},
     const {'1': 'ETH', '2': 2},
     const {'1': 'BNB', '2': 3},
+    const {'1': 'DOGE', '2': 4},
+    const {'1': 'BCH', '2': 5},
+    const {'1': 'LTC', '2': 6},
+    const {'1': 'ATOM', '2': 7},
+    const {'1': 'AVAX', '2': 8},
   ],
 };
 
 /// Descriptor for `Chain`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIICgRUSE9SEAASBwoDQlRDEAESBwoDRVRIEAISBwoDQk5CEAM=');
+final $typed_data.Uint8List chainDescriptor = $convert.base64Decode('CgVDaGFpbhIICgRUSE9SEAASBwoDQlRDEAESBwoDRVRIEAISBwoDQk5CEAMSCAoERE9HRRAEEgcKA0JDSBAFEgcKA0xUQxAGEggKBEFUT00QBxIICgRBVkFYEAg=');
 @$core.Deprecated('Use errorCodeDescriptor instead')
 const ErrorCode$json = const {
   '1': 'ErrorCode',
@@ -93,6 +98,7 @@ const SwapOutput$json = const {
     const {'1': 'bitcoin', '3': 4, '4': 1, '5': 11, '6': '.TW.Bitcoin.Proto.SigningInput', '9': 0, '10': 'bitcoin'},
     const {'1': 'ethereum', '3': 5, '4': 1, '5': 11, '6': '.TW.Ethereum.Proto.SigningInput', '9': 0, '10': 'ethereum'},
     const {'1': 'binance', '3': 6, '4': 1, '5': 11, '6': '.TW.Binance.Proto.SigningInput', '9': 0, '10': 'binance'},
+    const {'1': 'cosmos', '3': 7, '4': 1, '5': 11, '6': '.TW.Cosmos.Proto.SigningInput', '9': 0, '10': 'cosmos'},
   ],
   '8': const [
     const {'1': 'signing_input_oneof'},
@@ -100,4 +106,4 @@ const SwapOutput$json = const {
 };
 
 /// Descriptor for `SwapOutput`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List swapOutputDescriptor = $convert.base64Decode('CgpTd2FwT3V0cHV0EjwKCmZyb21fY2hhaW4YASABKA4yHS5UVy5USE9SQ2hhaW5Td2FwLlByb3RvLkNoYWluUglmcm9tQ2hhaW4SOAoIdG9fY2hhaW4YAiABKA4yHS5UVy5USE9SQ2hhaW5Td2FwLlByb3RvLkNoYWluUgd0b0NoYWluEjMKBWVycm9yGAMgASgLMh0uVFcuVEhPUkNoYWluU3dhcC5Qcm90by5FcnJvclIFZXJyb3ISOgoHYml0Y29pbhgEIAEoCzIeLlRXLkJpdGNvaW4uUHJvdG8uU2lnbmluZ0lucHV0SABSB2JpdGNvaW4SPQoIZXRoZXJldW0YBSABKAsyHy5UVy5FdGhlcmV1bS5Qcm90by5TaWduaW5nSW5wdXRIAFIIZXRoZXJldW0SOgoHYmluYW5jZRgGIAEoCzIeLlRXLkJpbmFuY2UuUHJvdG8uU2lnbmluZ0lucHV0SABSB2JpbmFuY2VCFQoTc2lnbmluZ19pbnB1dF9vbmVvZg==');
+final $typed_data.Uint8List swapOutputDescriptor = $convert.base64Decode('CgpTd2FwT3V0cHV0EjwKCmZyb21fY2hhaW4YASABKA4yHS5UVy5USE9SQ2hhaW5Td2FwLlByb3RvLkNoYWluUglmcm9tQ2hhaW4SOAoIdG9fY2hhaW4YAiABKA4yHS5UVy5USE9SQ2hhaW5Td2FwLlByb3RvLkNoYWluUgd0b0NoYWluEjMKBWVycm9yGAMgASgLMh0uVFcuVEhPUkNoYWluU3dhcC5Qcm90by5FcnJvclIFZXJyb3ISOgoHYml0Y29pbhgEIAEoCzIeLlRXLkJpdGNvaW4uUHJvdG8uU2lnbmluZ0lucHV0SABSB2JpdGNvaW4SPQoIZXRoZXJldW0YBSABKAsyHy5UVy5FdGhlcmV1bS5Qcm90by5TaWduaW5nSW5wdXRIAFIIZXRoZXJldW0SOgoHYmluYW5jZRgGIAEoCzIeLlRXLkJpbmFuY2UuUHJvdG8uU2lnbmluZ0lucHV0SABSB2JpbmFuY2USNwoGY29zbW9zGAcgASgLMh0uVFcuQ29zbW9zLlByb3RvLlNpZ25pbmdJbnB1dEgAUgZjb3Ntb3NCFQoTc2lnbmluZ19pbnB1dF9vbmVvZg==');

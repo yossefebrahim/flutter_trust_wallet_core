@@ -68,8 +68,9 @@ const SigningOutput$json = const {
   '1': 'SigningOutput',
   '2': const [
     const {'1': 'encoded', '3': 1, '4': 1, '5': 12, '10': 'encoded'},
+    const {'1': 'signature', '3': 2, '4': 1, '5': 9, '10': 'signature'},
   ],
 };
 
 /// Descriptor for `SigningOutput`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List signingOutputDescriptor = $convert.base64Decode('Cg1TaWduaW5nT3V0cHV0EhgKB2VuY29kZWQYASABKAxSB2VuY29kZWQ=');
+final $typed_data.Uint8List signingOutputDescriptor = $convert.base64Decode('Cg1TaWduaW5nT3V0cHV0EhgKB2VuY29kZWQYASABKAxSB2VuY29kZWQSHAoJc2lnbmF0dXJlGAIgASgJUglzaWduYXR1cmU=');

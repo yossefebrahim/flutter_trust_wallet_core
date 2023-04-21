@@ -392,16 +392,21 @@ class SigningInput extends $pb.GeneratedMessage {
 class SigningOutput extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SigningOutput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Algorand.Proto'), createEmptyInstance: create)
     ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'encoded', $pb.PbFieldType.OY)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'signature')
     ..hasRequiredFields = false
   ;
 
   SigningOutput._() : super();
   factory SigningOutput({
     $core.List<$core.int>? encoded,
+    $core.String? signature,
   }) {
     final _result = create();
     if (encoded != null) {
       _result.encoded = encoded;
+    }
+    if (signature != null) {
+      _result.signature = signature;
     }
     return _result;
   }
@@ -434,5 +439,14 @@ class SigningOutput extends $pb.GeneratedMessage {
   $core.bool hasEncoded() => $_has(0);
   @$pb.TagNumber(1)
   void clearEncoded() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get signature => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set signature($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSignature() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSignature() => clearField(2);
 }
 

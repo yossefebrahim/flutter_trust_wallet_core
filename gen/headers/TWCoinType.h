@@ -1,4 +1,4 @@
-// Copyright © 2017-2022 Trust Wallet.
+// Copyright © 2017-2023 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -98,7 +98,7 @@ enum TWCoinType {
     TWCoinTypeTHORChain = 931,
     TWCoinTypeBluzelle = 483,
     TWCoinTypeOptimism = 10000070,
-    TWCoinTypeZksync = 10000280,
+    TWCoinTypeZksync = 10000324,
     TWCoinTypeArbitrum = 10042221,
     TWCoinTypeECOChain = 10000553,
     TWCoinTypeAvalancheCChain = 10009000,
@@ -132,7 +132,26 @@ enum TWCoinType {
     TWCoinTypeAgoric = 564,
     TWCoinTypeTON = 607,
     TWCoinTypeSui = 784,
-    TWCoinTypePolygonzkEVM = 10001422,
+    TWCoinTypeStargaze = 20000118,
+    TWCoinTypePolygonzkEVM = 10001101,
+    TWCoinTypeJuno = 30000118,
+    TWCoinTypeStride = 40000118,
+    TWCoinTypeAxelar = 50000118,
+    TWCoinTypeCrescent = 60000118,
+    TWCoinTypeKujira = 70000118,
+    TWCoinTypeIoTeXEVM = 10004689,
+    TWCoinTypeNativeCanto = 10007700,
+    TWCoinTypeComdex = 80000118,
+    TWCoinTypeNeutron = 90000118,
+    TWCoinTypeSommelier = 11000118,
+    TWCoinTypeFetchAI = 12000118,
+    TWCoinTypeMars = 13000118,
+    TWCoinTypeUmee = 14000118,
+    TWCoinTypeCoreum = 10000990,
+    TWCoinTypeQuasar = 15000118,
+    TWCoinTypePersistence = 16000118,
+    TWCoinTypeAkash = 17000118,
+    TWCoinTypeNoble = 18000118,
 };
 
 /// Returns the blockchain for a coin type.

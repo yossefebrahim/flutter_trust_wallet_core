@@ -1747,6 +1747,7 @@ class SigningInput extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SigningInput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Tron.Proto'), createEmptyInstance: create)
     ..aOM<Transaction>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'transaction', subBuilder: Transaction.create)
     ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey', $pb.PbFieldType.OY)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'txId', protoName: 'txId')
     ..hasRequiredFields = false
   ;
 
@@ -1754,6 +1755,7 @@ class SigningInput extends $pb.GeneratedMessage {
   factory SigningInput({
     Transaction? transaction,
     $core.List<$core.int>? privateKey,
+    $core.String? txId,
   }) {
     final _result = create();
     if (transaction != null) {
@@ -1761,6 +1763,9 @@ class SigningInput extends $pb.GeneratedMessage {
     }
     if (privateKey != null) {
       _result.privateKey = privateKey;
+    }
+    if (txId != null) {
+      _result.txId = txId;
     }
     return _result;
   }
@@ -1804,6 +1809,15 @@ class SigningInput extends $pb.GeneratedMessage {
   $core.bool hasPrivateKey() => $_has(1);
   @$pb.TagNumber(2)
   void clearPrivateKey() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get txId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set txId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasTxId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearTxId() => clearField(3);
 }
 
 class SigningOutput extends $pb.GeneratedMessage {

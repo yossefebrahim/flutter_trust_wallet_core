@@ -14,12 +14,22 @@ class Chain extends $pb.ProtobufEnum {
   static const Chain BTC = Chain._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'BTC');
   static const Chain ETH = Chain._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ETH');
   static const Chain BNB = Chain._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'BNB');
+  static const Chain DOGE = Chain._(4, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'DOGE');
+  static const Chain BCH = Chain._(5, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'BCH');
+  static const Chain LTC = Chain._(6, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'LTC');
+  static const Chain ATOM = Chain._(7, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ATOM');
+  static const Chain AVAX = Chain._(8, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'AVAX');
 
   static const $core.List<Chain> values = <Chain> [
     THOR,
     BTC,
     ETH,
     BNB,
+    DOGE,
+    BCH,
+    LTC,
+    ATOM,
+    AVAX,
   ];
 
   static final $core.Map<$core.int, Chain> _byValue = $pb.ProtobufEnum.initByValue(values);
