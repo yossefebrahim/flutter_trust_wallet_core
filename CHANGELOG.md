@@ -1,3 +1,7 @@
+## 0.0.6
+
+* sync api change
+
 ## 0.0.5
 
 * sync api change
