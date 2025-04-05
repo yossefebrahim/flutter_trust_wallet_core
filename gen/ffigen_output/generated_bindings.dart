@@ -268,6 +268,264 @@ class TrustWalletCore {
 
   set __mb_cur_max(int value) => ___mb_cur_max.value = value;
 
+  ffi.Pointer<ffi.Void> malloc_type_malloc(
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_malloc(
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_mallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Size, malloc_type_id_t)>>('malloc_type_malloc');
+  late final _malloc_type_malloc = _malloc_type_mallocPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_calloc(
+    int count,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_calloc(
+      count,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_callocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Size, ffi.Size, malloc_type_id_t)>>('malloc_type_calloc');
+  late final _malloc_type_calloc = _malloc_type_callocPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(int, int, int)>();
+
+  void malloc_type_free(
+    ffi.Pointer<ffi.Void> ptr,
+    int type_id,
+  ) {
+    return _malloc_type_free(
+      ptr,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_freePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ffi.Void>, malloc_type_id_t)>>('malloc_type_free');
+  late final _malloc_type_free = _malloc_type_freePtr
+      .asFunction<void Function(ffi.Pointer<ffi.Void>, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_realloc(
+    ffi.Pointer<ffi.Void> ptr,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_realloc(
+      ptr,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_reallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, ffi.Size,
+              malloc_type_id_t)>>('malloc_type_realloc');
+  late final _malloc_type_realloc = _malloc_type_reallocPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_valloc(
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_valloc(
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_vallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Size, malloc_type_id_t)>>('malloc_type_valloc');
+  late final _malloc_type_valloc = _malloc_type_vallocPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_aligned_alloc(
+    int alignment,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_aligned_alloc(
+      alignment,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_aligned_allocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Size, ffi.Size,
+              malloc_type_id_t)>>('malloc_type_aligned_alloc');
+  late final _malloc_type_aligned_alloc = _malloc_type_aligned_allocPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(int, int, int)>();
+
+  int malloc_type_posix_memalign(
+    ffi.Pointer<ffi.Pointer<ffi.Void>> memptr,
+    int alignment,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_posix_memalign(
+      memptr,
+      alignment,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_posix_memalignPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Int Function(ffi.Pointer<ffi.Pointer<ffi.Void>>, ffi.Size,
+              ffi.Size, malloc_type_id_t)>>('malloc_type_posix_memalign');
+  late final _malloc_type_posix_memalign =
+      _malloc_type_posix_memalignPtr.asFunction<
+          int Function(ffi.Pointer<ffi.Pointer<ffi.Void>>, int, int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_zone_malloc(
+    ffi.Pointer<malloc_zone_t> zone,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_zone_malloc(
+      zone,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_mallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, ffi.Size,
+              malloc_type_id_t)>>('malloc_type_zone_malloc');
+  late final _malloc_type_zone_malloc = _malloc_type_zone_mallocPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_zone_calloc(
+    ffi.Pointer<malloc_zone_t> zone,
+    int count,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_zone_calloc(
+      zone,
+      count,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_callocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, ffi.Size,
+              ffi.Size, malloc_type_id_t)>>('malloc_type_zone_calloc');
+  late final _malloc_type_zone_calloc = _malloc_type_zone_callocPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(
+          ffi.Pointer<malloc_zone_t>, int, int, int)>();
+
+  void malloc_type_zone_free(
+    ffi.Pointer<malloc_zone_t> zone,
+    ffi.Pointer<ffi.Void> ptr,
+    int type_id,
+  ) {
+    return _malloc_type_zone_free(
+      zone,
+      ptr,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_freePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<malloc_zone_t>, ffi.Pointer<ffi.Void>,
+              malloc_type_id_t)>>('malloc_type_zone_free');
+  late final _malloc_type_zone_free = _malloc_type_zone_freePtr.asFunction<
+      void Function(ffi.Pointer<malloc_zone_t>, ffi.Pointer<ffi.Void>, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_zone_realloc(
+    ffi.Pointer<malloc_zone_t> zone,
+    ffi.Pointer<ffi.Void> ptr,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_zone_realloc(
+      zone,
+      ptr,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_reallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<malloc_zone_t>,
+              ffi.Pointer<ffi.Void>,
+              ffi.Size,
+              malloc_type_id_t)>>('malloc_type_zone_realloc');
+  late final _malloc_type_zone_realloc =
+      _malloc_type_zone_reallocPtr.asFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<malloc_zone_t>, ffi.Pointer<ffi.Void>, int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_zone_valloc(
+    ffi.Pointer<malloc_zone_t> zone,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_zone_valloc(
+      zone,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_vallocPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, ffi.Size,
+              malloc_type_id_t)>>('malloc_type_zone_valloc');
+  late final _malloc_type_zone_valloc = _malloc_type_zone_vallocPtr.asFunction<
+      ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, int, int)>();
+
+  ffi.Pointer<ffi.Void> malloc_type_zone_memalign(
+    ffi.Pointer<malloc_zone_t> zone,
+    int alignment,
+    int size,
+    int type_id,
+  ) {
+    return _malloc_type_zone_memalign(
+      zone,
+      alignment,
+      size,
+      type_id,
+    );
+  }
+
+  late final _malloc_type_zone_memalignPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(ffi.Pointer<malloc_zone_t>, ffi.Size,
+              ffi.Size, malloc_type_id_t)>>('malloc_type_zone_memalign');
+  late final _malloc_type_zone_memalign =
+      _malloc_type_zone_memalignPtr.asFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<malloc_zone_t>, int, int, int)>();
+
   ffi.Pointer<ffi.Void> malloc(
     int __size,
   ) {
@@ -329,11 +587,28 @@ class TrustWalletCore {
   late final _realloc = _reallocPtr
       .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int)>();
 
+  ffi.Pointer<ffi.Void> reallocf(
+    ffi.Pointer<ffi.Void> __ptr,
+    int __size,
+  ) {
+    return _reallocf(
+      __ptr,
+      __size,
+    );
+  }
+
+  late final _reallocfPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Void> Function(
+              ffi.Pointer<ffi.Void>, ffi.Size)>>('reallocf');
+  late final _reallocf = _reallocfPtr
+      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int)>();
+
   ffi.Pointer<ffi.Void> valloc(
-    int arg0,
+    int __size,
   ) {
     return _valloc(
-      arg0,
+      __size,
     );
   }
 
@@ -411,6 +686,22 @@ class TrustWalletCore {
           ffi.Int Function(
               ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>>)>>('atexit');
   late final _atexit = _atexitPtr.asFunction<
+      int Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>>)>();
+
+  int at_quick_exit(
+    ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>> arg0,
+  ) {
+    return _at_quick_exit(
+      arg0,
+    );
+  }
+
+  late final _at_quick_exitPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Int Function(
+                  ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>>)>>(
+      'at_quick_exit');
+  late final _at_quick_exit = _at_quick_exitPtr.asFunction<
       int Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>>)>();
 
   double atof(
@@ -691,6 +982,18 @@ class TrustWalletCore {
               ffi.NativeFunction<
                   ffi.Int Function(
                       ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>();
+
+  void quick_exit(
+    int arg0,
+  ) {
+    return _quick_exit(
+      arg0,
+    );
+  }
+
+  late final _quick_exitPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>('quick_exit');
+  late final _quick_exit = _quick_exitPtr.asFunction<void Function(int)>();
 
   int rand() {
     return _rand();
@@ -1389,9 +1692,9 @@ class TrustWalletCore {
   }
 
   late final _arc4random_bufPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<ffi.Void>, ffi.Size)>>('arc4random_buf');
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Size)>>(
+      'arc4random_buf');
   late final _arc4random_buf = _arc4random_bufPtr
       .asFunction<void Function(ffi.Pointer<ffi.Void>, int)>();
 
@@ -1977,23 +2280,6 @@ class TrustWalletCore {
       _lookup<ffi.NativeFunction<ffi.Void Function()>>('srandomdev');
   late final _srandomdev = _srandomdevPtr.asFunction<void Function()>();
 
-  ffi.Pointer<ffi.Void> reallocf(
-    ffi.Pointer<ffi.Void> __ptr,
-    int __size,
-  ) {
-    return _reallocf(
-      __ptr,
-      __size,
-    );
-  }
-
-  late final _reallocfPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<ffi.Void> Function(
-              ffi.Pointer<ffi.Void>, ffi.Size)>>('reallocf');
-  late final _reallocf = _reallocfPtr
-      .asFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, int)>();
-
   int strtonum(
     ffi.Pointer<ffi.Char> __numstr,
     int __minval,
@@ -2540,9 +2826,9 @@ class TrustWalletCore {
   }
 
   late final _TWStringCreateWithHexDataPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWString> Function(
-              ffi.Pointer<TWData>)>>('TWStringCreateWithHexData');
+          ffi
+          .NativeFunction<ffi.Pointer<TWString> Function(ffi.Pointer<TWData>)>>(
+      'TWStringCreateWithHexData');
   late final _TWStringCreateWithHexData = _TWStringCreateWithHexDataPtr
       .asFunction<ffi.Pointer<TWString> Function(ffi.Pointer<TWData>)>();
 
@@ -2745,9 +3031,9 @@ class TrustWalletCore {
   }
 
   late final _TWCoinTypeValidatePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(
-              ffi.Int32, ffi.Pointer<TWString>)>>('TWCoinTypeValidate');
+          ffi
+          .NativeFunction<ffi.Bool Function(ffi.Int32, ffi.Pointer<TWString>)>>(
+      'TWCoinTypeValidate');
   late final _TWCoinTypeValidate = _TWCoinTypeValidatePtr.asFunction<
       bool Function(int, ffi.Pointer<TWString>)>();
 
@@ -3157,9 +3443,9 @@ class TrustWalletCore {
   }
 
   late final _TWDataCreateWithDataPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWDataCreateWithData');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWDataCreateWithData');
   late final _TWDataCreateWithData = _TWDataCreateWithDataPtr.asFunction<
       ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
 
@@ -3176,9 +3462,9 @@ class TrustWalletCore {
   }
 
   late final _TWDataCreateWithHexStringPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWString>)>>('TWDataCreateWithHexString');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>>(
+      'TWDataCreateWithHexString');
   late final _TWDataCreateWithHexString = _TWDataCreateWithHexStringPtr
       .asFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>();
 
@@ -3356,9 +3642,9 @@ class TrustWalletCore {
   }
 
   late final _TWDataAppendBytePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<TWData>, ffi.Uint8)>>('TWDataAppendByte');
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Pointer<TWData>, ffi.Uint8)>>(
+      'TWDataAppendByte');
   late final _TWDataAppendByte = _TWDataAppendBytePtr.asFunction<
       void Function(ffi.Pointer<TWData>, int)>();
 
@@ -3562,9 +3848,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathIndicesCountPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathIndicesCount');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathIndicesCount');
   late final _TWDerivationPathIndicesCount = _TWDerivationPathIndicesCountPtr
       .asFunction<int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3581,9 +3867,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathPurposePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Int32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathPurpose');
+          ffi
+          .NativeFunction<ffi.Int32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathPurpose');
   late final _TWDerivationPathPurpose = _TWDerivationPathPurposePtr.asFunction<
       int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3600,9 +3886,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathCoinPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathCoin');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathCoin');
   late final _TWDerivationPathCoin = _TWDerivationPathCoinPtr.asFunction<
       int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3619,9 +3905,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathAccountPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathAccount');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathAccount');
   late final _TWDerivationPathAccount = _TWDerivationPathAccountPtr.asFunction<
       int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3638,9 +3924,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathChangePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathChange');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathChange');
   late final _TWDerivationPathChange = _TWDerivationPathChangePtr.asFunction<
       int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3657,9 +3943,9 @@ class TrustWalletCore {
   }
 
   late final _TWDerivationPathAddressPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWDerivationPath>)>>('TWDerivationPathAddress');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWDerivationPath>)>>(
+      'TWDerivationPathAddress');
   late final _TWDerivationPathAddress = _TWDerivationPathAddressPtr.asFunction<
       int Function(ffi.Pointer<TWDerivationPath>)>();
 
@@ -3756,9 +4042,9 @@ class TrustWalletCore {
   }
 
   late final _TWPublicKeyIsValidPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(
-              ffi.Pointer<TWData>, ffi.Int32)>>('TWPublicKeyIsValid');
+          ffi
+          .NativeFunction<ffi.Bool Function(ffi.Pointer<TWData>, ffi.Int32)>>(
+      'TWPublicKeyIsValid');
   late final _TWPublicKeyIsValid = _TWPublicKeyIsValidPtr.asFunction<
       bool Function(ffi.Pointer<TWData>, int)>();
 
@@ -4071,9 +4357,9 @@ class TrustWalletCore {
   }
 
   late final _TWPrivateKeyIsValidPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(
-              ffi.Pointer<TWData>, ffi.Int32)>>('TWPrivateKeyIsValid');
+          ffi
+          .NativeFunction<ffi.Bool Function(ffi.Pointer<TWData>, ffi.Int32)>>(
+      'TWPrivateKeyIsValid');
   late final _TWPrivateKeyIsValid = _TWPrivateKeyIsValidPtr.asFunction<
       bool Function(ffi.Pointer<TWData>, int)>();
 
@@ -5370,9 +5656,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeInt256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueEncodeInt256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueEncodeInt256');
   late final _TWEthereumAbiValueEncodeInt256 =
       _TWEthereumAbiValueEncodeInt256Ptr.asFunction<
           ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
@@ -5390,9 +5676,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeUInt256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueEncodeUInt256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueEncodeUInt256');
   late final _TWEthereumAbiValueEncodeUInt256 =
       _TWEthereumAbiValueEncodeUInt256Ptr.asFunction<
           ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
@@ -5410,9 +5696,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeAddressPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueEncodeAddress');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueEncodeAddress');
   late final _TWEthereumAbiValueEncodeAddress =
       _TWEthereumAbiValueEncodeAddressPtr.asFunction<
           ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
@@ -5430,9 +5716,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeStringPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWString>)>>('TWEthereumAbiValueEncodeString');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>>(
+      'TWEthereumAbiValueEncodeString');
   late final _TWEthereumAbiValueEncodeString =
       _TWEthereumAbiValueEncodeStringPtr.asFunction<
           ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>();
@@ -5450,9 +5736,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeBytesPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueEncodeBytes');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueEncodeBytes');
   late final _TWEthereumAbiValueEncodeBytes = _TWEthereumAbiValueEncodeBytesPtr
       .asFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
 
@@ -5469,9 +5755,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueEncodeBytesDynPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueEncodeBytesDyn');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueEncodeBytesDyn');
   late final _TWEthereumAbiValueEncodeBytesDyn =
       _TWEthereumAbiValueEncodeBytesDynPtr.asFunction<
           ffi.Pointer<TWData> Function(ffi.Pointer<TWData>)>();
@@ -5489,9 +5775,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiValueDecodeUInt256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWString> Function(
-              ffi.Pointer<TWData>)>>('TWEthereumAbiValueDecodeUInt256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWString> Function(ffi.Pointer<TWData>)>>(
+      'TWEthereumAbiValueDecodeUInt256');
   late final _TWEthereumAbiValueDecodeUInt256 =
       _TWEthereumAbiValueDecodeUInt256Ptr.asFunction<
           ffi.Pointer<TWString> Function(ffi.Pointer<TWData>)>();
@@ -6369,9 +6655,9 @@ class TrustWalletCore {
   }
 
   late final _TWBitcoinAddressPrefixPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint8 Function(
-              ffi.Pointer<TWBitcoinAddress>)>>('TWBitcoinAddressPrefix');
+          ffi
+          .NativeFunction<ffi.Uint8 Function(ffi.Pointer<TWBitcoinAddress>)>>(
+      'TWBitcoinAddressPrefix');
   late final _TWBitcoinAddressPrefix = _TWBitcoinAddressPrefixPtr.asFunction<
       int Function(ffi.Pointer<TWBitcoinAddress>)>();
 
@@ -6431,9 +6717,9 @@ class TrustWalletCore {
   }
 
   late final _TWAnyAddressIsValidPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Bool Function(
-              ffi.Pointer<TWString>, ffi.Int32)>>('TWAnyAddressIsValid');
+          ffi
+          .NativeFunction<ffi.Bool Function(ffi.Pointer<TWString>, ffi.Int32)>>(
+      'TWAnyAddressIsValid');
   late final _TWAnyAddressIsValid = _TWAnyAddressIsValidPtr.asFunction<
       bool Function(ffi.Pointer<TWString>, int)>();
 
@@ -6778,9 +7064,9 @@ class TrustWalletCore {
   }
 
   late final _TWTHORChainSwapBuildSwapPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWTHORChainSwapBuildSwap');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWTHORChainSwapBuildSwap');
   late final _TWTHORChainSwapBuildSwap = _TWTHORChainSwapBuildSwapPtr
       .asFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7162,9 +7448,9 @@ class TrustWalletCore {
   }
 
   late final _TWRippleXAddressTagPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Uint32 Function(
-              ffi.Pointer<TWRippleXAddress>)>>('TWRippleXAddressTag');
+          ffi
+          .NativeFunction<ffi.Uint32 Function(ffi.Pointer<TWRippleXAddress>)>>(
+      'TWRippleXAddressTag');
   late final _TWRippleXAddressTag = _TWRippleXAddressTagPtr.asFunction<
       int Function(ffi.Pointer<TWRippleXAddress>)>();
 
@@ -7526,9 +7812,9 @@ class TrustWalletCore {
   }
 
   late final _TWEthereumAbiEncodeTypedPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData> Function(
-              ffi.Pointer<TWString>)>>('TWEthereumAbiEncodeTyped');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>>(
+      'TWEthereumAbiEncodeTyped');
   late final _TWEthereumAbiEncodeTyped = _TWEthereumAbiEncodeTypedPtr
       .asFunction<ffi.Pointer<TWData> Function(ffi.Pointer<TWString>)>();
 
@@ -7740,9 +8026,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA512_256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA512_256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA512_256');
   late final _TWHashSHA512_256 = _TWHashSHA512_256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7759,9 +8045,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashKeccak256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashKeccak256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashKeccak256');
   late final _TWHashKeccak256 = _TWHashKeccak256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7778,9 +8064,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashKeccak512Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashKeccak512');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashKeccak512');
   late final _TWHashKeccak512 = _TWHashKeccak512Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7797,9 +8083,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA3_256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA3_256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA3_256');
   late final _TWHashSHA3_256 = _TWHashSHA3_256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7816,9 +8102,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA3_512Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA3_512');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA3_512');
   late final _TWHashSHA3_512 = _TWHashSHA3_512Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7853,9 +8139,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashBlake256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashBlake256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashBlake256');
   late final _TWHashBlake256 = _TWHashBlake256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7893,9 +8179,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashGroestl512Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashGroestl512');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashGroestl512');
   late final _TWHashGroestl512 = _TWHashGroestl512Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7912,9 +8198,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA256SHA256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA256SHA256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA256SHA256');
   late final _TWHashSHA256SHA256 = _TWHashSHA256SHA256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7931,9 +8217,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA256RIPEMDPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA256RIPEMD');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA256RIPEMD');
   late final _TWHashSHA256RIPEMD = _TWHashSHA256RIPEMDPtr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7950,9 +8236,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashSHA3_256RIPEMDPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashSHA3_256RIPEMD');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashSHA3_256RIPEMD');
   late final _TWHashSHA3_256RIPEMD = _TWHashSHA3_256RIPEMDPtr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7969,9 +8255,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashBlake256Blake256Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashBlake256Blake256');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashBlake256Blake256');
   late final _TWHashBlake256Blake256 = _TWHashBlake256Blake256Ptr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -7988,9 +8274,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashBlake256RIPEMDPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashBlake256RIPEMD');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashBlake256RIPEMD');
   late final _TWHashBlake256RIPEMD = _TWHashBlake256RIPEMDPtr.asFunction<
       ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -8007,9 +8293,9 @@ class TrustWalletCore {
   }
 
   late final _TWHashGroestl512Groestl512Ptr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<TWData1> Function(
-              ffi.Pointer<TWData1>)>>('TWHashGroestl512Groestl512');
+          ffi
+          .NativeFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>>(
+      'TWHashGroestl512Groestl512');
   late final _TWHashGroestl512Groestl512 = _TWHashGroestl512Groestl512Ptr
       .asFunction<ffi.Pointer<TWData1> Function(ffi.Pointer<TWData1>)>();
 
@@ -11395,7 +11681,7 @@ class __mbstate_t extends ffi.Union {
 
 class __darwin_pthread_handler_rec extends ffi.Struct {
   external ffi
-          .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
+      .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
       __routine;
 
   external ffi.Pointer<ffi.Void> __arg;
@@ -11508,6 +11794,14 @@ class __darwin_arm_exception_state64 extends ffi.Struct {
 }
 
 typedef __uint64_t = ffi.UnsignedLongLong;
+
+class __darwin_arm_exception_state64_v2 extends ffi.Struct {
+  @__uint64_t()
+  external int __far;
+
+  @__uint64_t()
+  external int __esr;
+}
 
 class __darwin_arm_thread_state extends ffi.Struct {
   @ffi.Array.multi([13])
@@ -12423,7 +12717,22 @@ class rusage_info_v6 extends ffi.Struct {
   @ffi.Uint64()
   external int ri_penergy_nj;
 
-  @ffi.Array.multi([14])
+  @ffi.Uint64()
+  external int ri_secure_time_in_system;
+
+  @ffi.Uint64()
+  external int ri_secure_ptime_in_system;
+
+  @ffi.Uint64()
+  external int ri_neural_footprint;
+
+  @ffi.Uint64()
+  external int ri_lifetime_max_neural_footprint;
+
+  @ffi.Uint64()
+  external int ri_interval_max_neural_footprint;
+
+  @ffi.Array.multi([9])
   external ffi.Array<ffi.Uint64> ri_reserved;
 }
 
@@ -12447,24 +12756,6 @@ class proc_rlimit_control_wakeupmon extends ffi.Struct {
 
 typedef id_t = __darwin_id_t;
 typedef __darwin_id_t = __uint32_t;
-
-@ffi.Packed(1)
-class _OSUnalignedU16 extends ffi.Struct {
-  @ffi.Uint16()
-  external int __val;
-}
-
-@ffi.Packed(1)
-class _OSUnalignedU32 extends ffi.Struct {
-  @ffi.Uint32()
-  external int __val;
-}
-
-@ffi.Packed(1)
-class _OSUnalignedU64 extends ffi.Struct {
-  @ffi.Uint64()
-  external int __val;
-}
 
 class wait extends ffi.Opaque {}
 
@@ -12492,6 +12783,11 @@ class lldiv_t extends ffi.Struct {
   external int rem;
 }
 
+typedef malloc_type_id_t = ffi.UnsignedLongLong;
+
+class _malloc_zone_t extends ffi.Opaque {}
+
+typedef malloc_zone_t = _malloc_zone_t;
 typedef dev_t = __darwin_dev_t;
 typedef __darwin_dev_t = __int32_t;
 typedef mode_t = __darwin_mode_t;
@@ -13093,6 +13389,8 @@ const int true1 = 1;
 
 const int false1 = 0;
 
+const int __has_safe_buffers = 1;
+
 const int __DARWIN_ONLY_64_BIT_INO_T = 1;
 
 const int __DARWIN_ONLY_UNIX_CONFORMANCE = 1;
@@ -13275,13 +13573,15 @@ const int __API_TO_BE_DEPRECATED_MACOS = 100000;
 
 const int __API_TO_BE_DEPRECATED_IOS = 100000;
 
-const int __API_TO_BE_DEPRECATED_TVOS = 100000;
+const int __API_TO_BE_DEPRECATED_MACCATALYST = 100000;
 
 const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
 
-const int __API_TO_BE_DEPRECATED_MACCATALYST = 100000;
+const int __API_TO_BE_DEPRECATED_TVOS = 100000;
 
 const int __API_TO_BE_DEPRECATED_DRIVERKIT = 100000;
+
+const int __API_TO_BE_DEPRECATED_VISIONOS = 100000;
 
 const int __MAC_10_0 = 1000;
 
@@ -13339,6 +13639,8 @@ const int __MAC_10_14_1 = 101401;
 
 const int __MAC_10_14_4 = 101404;
 
+const int __MAC_10_14_5 = 101405;
+
 const int __MAC_10_14_6 = 101406;
 
 const int __MAC_10_15 = 101500;
@@ -13369,6 +13671,14 @@ const int __MAC_12_2 = 120200;
 
 const int __MAC_12_3 = 120300;
 
+const int __MAC_12_4 = 120400;
+
+const int __MAC_12_5 = 120500;
+
+const int __MAC_12_6 = 120600;
+
+const int __MAC_12_7 = 120700;
+
 const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
@@ -13376,6 +13686,30 @@ const int __MAC_13_1 = 130100;
 const int __MAC_13_2 = 130200;
 
 const int __MAC_13_3 = 130300;
+
+const int __MAC_13_4 = 130400;
+
+const int __MAC_13_5 = 130500;
+
+const int __MAC_13_6 = 130600;
+
+const int __MAC_14_0 = 140000;
+
+const int __MAC_14_1 = 140100;
+
+const int __MAC_14_2 = 140200;
+
+const int __MAC_14_3 = 140300;
+
+const int __MAC_14_4 = 140400;
+
+const int __MAC_14_5 = 140500;
+
+const int __MAC_15_0 = 150000;
+
+const int __MAC_15_1 = 150100;
+
+const int __MAC_15_2 = 150200;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -13481,6 +13815,8 @@ const int __IPHONE_14_3 = 140300;
 
 const int __IPHONE_14_5 = 140500;
 
+const int __IPHONE_14_4 = 140400;
+
 const int __IPHONE_14_6 = 140600;
 
 const int __IPHONE_14_7 = 140700;
@@ -13497,6 +13833,14 @@ const int __IPHONE_15_3 = 150300;
 
 const int __IPHONE_15_4 = 150400;
 
+const int __IPHONE_15_5 = 150500;
+
+const int __IPHONE_15_6 = 150600;
+
+const int __IPHONE_15_7 = 150700;
+
+const int __IPHONE_15_8 = 150800;
+
 const int __IPHONE_16_0 = 160000;
 
 const int __IPHONE_16_1 = 160100;
@@ -13506,6 +13850,130 @@ const int __IPHONE_16_2 = 160200;
 const int __IPHONE_16_3 = 160300;
 
 const int __IPHONE_16_4 = 160400;
+
+const int __IPHONE_16_5 = 160500;
+
+const int __IPHONE_16_6 = 160600;
+
+const int __IPHONE_16_7 = 160700;
+
+const int __IPHONE_17_0 = 170000;
+
+const int __IPHONE_17_1 = 170100;
+
+const int __IPHONE_17_2 = 170200;
+
+const int __IPHONE_17_3 = 170300;
+
+const int __IPHONE_17_4 = 170400;
+
+const int __IPHONE_17_5 = 170500;
+
+const int __IPHONE_18_0 = 180000;
+
+const int __IPHONE_18_1 = 180100;
+
+const int __IPHONE_18_2 = 180200;
+
+const int __WATCHOS_1_0 = 10000;
+
+const int __WATCHOS_2_0 = 20000;
+
+const int __WATCHOS_2_1 = 20100;
+
+const int __WATCHOS_2_2 = 20200;
+
+const int __WATCHOS_3_0 = 30000;
+
+const int __WATCHOS_3_1 = 30100;
+
+const int __WATCHOS_3_1_1 = 30101;
+
+const int __WATCHOS_3_2 = 30200;
+
+const int __WATCHOS_4_0 = 40000;
+
+const int __WATCHOS_4_1 = 40100;
+
+const int __WATCHOS_4_2 = 40200;
+
+const int __WATCHOS_4_3 = 40300;
+
+const int __WATCHOS_5_0 = 50000;
+
+const int __WATCHOS_5_1 = 50100;
+
+const int __WATCHOS_5_2 = 50200;
+
+const int __WATCHOS_5_3 = 50300;
+
+const int __WATCHOS_6_0 = 60000;
+
+const int __WATCHOS_6_1 = 60100;
+
+const int __WATCHOS_6_2 = 60200;
+
+const int __WATCHOS_7_0 = 70000;
+
+const int __WATCHOS_7_1 = 70100;
+
+const int __WATCHOS_7_2 = 70200;
+
+const int __WATCHOS_7_3 = 70300;
+
+const int __WATCHOS_7_4 = 70400;
+
+const int __WATCHOS_7_5 = 70500;
+
+const int __WATCHOS_7_6 = 70600;
+
+const int __WATCHOS_8_0 = 80000;
+
+const int __WATCHOS_8_1 = 80100;
+
+const int __WATCHOS_8_3 = 80300;
+
+const int __WATCHOS_8_4 = 80400;
+
+const int __WATCHOS_8_5 = 80500;
+
+const int __WATCHOS_8_6 = 80600;
+
+const int __WATCHOS_8_7 = 80700;
+
+const int __WATCHOS_8_8 = 80800;
+
+const int __WATCHOS_9_0 = 90000;
+
+const int __WATCHOS_9_1 = 90100;
+
+const int __WATCHOS_9_2 = 90200;
+
+const int __WATCHOS_9_3 = 90300;
+
+const int __WATCHOS_9_4 = 90400;
+
+const int __WATCHOS_9_5 = 90500;
+
+const int __WATCHOS_9_6 = 90600;
+
+const int __WATCHOS_10_0 = 100000;
+
+const int __WATCHOS_10_1 = 100100;
+
+const int __WATCHOS_10_2 = 100200;
+
+const int __WATCHOS_10_3 = 100300;
+
+const int __WATCHOS_10_4 = 100400;
+
+const int __WATCHOS_10_5 = 100500;
+
+const int __WATCHOS_11_0 = 110000;
+
+const int __WATCHOS_11_1 = 110100;
+
+const int __WATCHOS_11_2 = 110200;
 
 const int __TVOS_9_0 = 90000;
 
@@ -13573,6 +14041,10 @@ const int __TVOS_15_3 = 150300;
 
 const int __TVOS_15_4 = 150400;
 
+const int __TVOS_15_5 = 150500;
+
+const int __TVOS_15_6 = 150600;
+
 const int __TVOS_16_0 = 160000;
 
 const int __TVOS_16_1 = 160100;
@@ -13583,77 +14055,129 @@ const int __TVOS_16_3 = 160300;
 
 const int __TVOS_16_4 = 160400;
 
-const int __WATCHOS_1_0 = 10000;
+const int __TVOS_16_5 = 160500;
 
-const int __WATCHOS_2_0 = 20000;
+const int __TVOS_16_6 = 160600;
 
-const int __WATCHOS_2_1 = 20100;
+const int __TVOS_17_0 = 170000;
 
-const int __WATCHOS_2_2 = 20200;
+const int __TVOS_17_1 = 170100;
 
-const int __WATCHOS_3_0 = 30000;
+const int __TVOS_17_2 = 170200;
 
-const int __WATCHOS_3_1 = 30100;
+const int __TVOS_17_3 = 170300;
 
-const int __WATCHOS_3_1_1 = 30101;
+const int __TVOS_17_4 = 170400;
 
-const int __WATCHOS_3_2 = 30200;
+const int __TVOS_17_5 = 170500;
 
-const int __WATCHOS_4_0 = 40000;
+const int __TVOS_18_0 = 180000;
 
-const int __WATCHOS_4_1 = 40100;
+const int __TVOS_18_1 = 180100;
 
-const int __WATCHOS_4_2 = 40200;
+const int __TVOS_18_2 = 180200;
 
-const int __WATCHOS_4_3 = 40300;
+const int __BRIDGEOS_2_0 = 20000;
 
-const int __WATCHOS_5_0 = 50000;
+const int __BRIDGEOS_3_0 = 30000;
 
-const int __WATCHOS_5_1 = 50100;
+const int __BRIDGEOS_3_1 = 30100;
 
-const int __WATCHOS_5_2 = 50200;
+const int __BRIDGEOS_3_4 = 30400;
 
-const int __WATCHOS_5_3 = 50300;
+const int __BRIDGEOS_4_0 = 40000;
 
-const int __WATCHOS_6_0 = 60000;
+const int __BRIDGEOS_4_1 = 40100;
 
-const int __WATCHOS_6_1 = 60100;
+const int __BRIDGEOS_5_0 = 50000;
 
-const int __WATCHOS_6_2 = 60200;
+const int __BRIDGEOS_5_1 = 50100;
 
-const int __WATCHOS_7_0 = 70000;
+const int __BRIDGEOS_5_3 = 50300;
 
-const int __WATCHOS_7_1 = 70100;
+const int __BRIDGEOS_6_0 = 60000;
 
-const int __WATCHOS_7_2 = 70200;
+const int __BRIDGEOS_6_2 = 60200;
 
-const int __WATCHOS_7_3 = 70300;
+const int __BRIDGEOS_6_4 = 60400;
 
-const int __WATCHOS_7_4 = 70400;
+const int __BRIDGEOS_6_5 = 60500;
 
-const int __WATCHOS_7_5 = 70500;
+const int __BRIDGEOS_6_6 = 60600;
 
-const int __WATCHOS_7_6 = 70600;
+const int __BRIDGEOS_7_0 = 70000;
 
-const int __WATCHOS_8_0 = 80000;
+const int __BRIDGEOS_7_1 = 70100;
 
-const int __WATCHOS_8_1 = 80100;
+const int __BRIDGEOS_7_2 = 70200;
 
-const int __WATCHOS_8_3 = 80300;
+const int __BRIDGEOS_7_3 = 70300;
 
-const int __WATCHOS_8_4 = 80400;
+const int __BRIDGEOS_7_4 = 70400;
 
-const int __WATCHOS_8_5 = 80500;
+const int __BRIDGEOS_7_6 = 70600;
 
-const int __WATCHOS_9_0 = 90000;
+const int __BRIDGEOS_8_0 = 80000;
 
-const int __WATCHOS_9_1 = 90100;
+const int __BRIDGEOS_8_1 = 80100;
 
-const int __WATCHOS_9_2 = 90200;
+const int __BRIDGEOS_8_2 = 80200;
 
-const int __WATCHOS_9_3 = 90300;
+const int __BRIDGEOS_8_3 = 80300;
 
-const int __WATCHOS_9_4 = 90400;
+const int __BRIDGEOS_8_4 = 80400;
+
+const int __BRIDGEOS_8_5 = 80500;
+
+const int __BRIDGEOS_9_0 = 90000;
+
+const int __BRIDGEOS_9_1 = 90100;
+
+const int __BRIDGEOS_9_2 = 90200;
+
+const int __DRIVERKIT_19_0 = 190000;
+
+const int __DRIVERKIT_20_0 = 200000;
+
+const int __DRIVERKIT_21_0 = 210000;
+
+const int __DRIVERKIT_22_0 = 220000;
+
+const int __DRIVERKIT_22_4 = 220400;
+
+const int __DRIVERKIT_22_5 = 220500;
+
+const int __DRIVERKIT_22_6 = 220600;
+
+const int __DRIVERKIT_23_0 = 230000;
+
+const int __DRIVERKIT_23_1 = 230100;
+
+const int __DRIVERKIT_23_2 = 230200;
+
+const int __DRIVERKIT_23_3 = 230300;
+
+const int __DRIVERKIT_23_4 = 230400;
+
+const int __DRIVERKIT_23_5 = 230500;
+
+const int __DRIVERKIT_24_0 = 240000;
+
+const int __DRIVERKIT_24_1 = 240100;
+
+const int __DRIVERKIT_24_2 = 240200;
+
+const int __VISIONOS_1_0 = 10000;
+
+const int __VISIONOS_1_1 = 10100;
+
+const int __VISIONOS_1_2 = 10200;
+
+const int __VISIONOS_2_0 = 20000;
+
+const int __VISIONOS_2_1 = 20100;
+
+const int __VISIONOS_2_2 = 20200;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -13711,29 +14235,81 @@ const int MAC_OS_X_VERSION_10_14_1 = 101401;
 
 const int MAC_OS_X_VERSION_10_14_4 = 101404;
 
+const int MAC_OS_X_VERSION_10_14_5 = 101405;
+
 const int MAC_OS_X_VERSION_10_14_6 = 101406;
 
 const int MAC_OS_X_VERSION_10_15 = 101500;
 
 const int MAC_OS_X_VERSION_10_15_1 = 101501;
 
+const int MAC_OS_X_VERSION_10_15_4 = 101504;
+
 const int MAC_OS_X_VERSION_10_16 = 101600;
 
 const int MAC_OS_VERSION_11_0 = 110000;
 
+const int MAC_OS_VERSION_11_1 = 110100;
+
+const int MAC_OS_VERSION_11_3 = 110300;
+
+const int MAC_OS_VERSION_11_4 = 110400;
+
+const int MAC_OS_VERSION_11_5 = 110500;
+
+const int MAC_OS_VERSION_11_6 = 110600;
+
 const int MAC_OS_VERSION_12_0 = 120000;
+
+const int MAC_OS_VERSION_12_1 = 120100;
+
+const int MAC_OS_VERSION_12_2 = 120200;
+
+const int MAC_OS_VERSION_12_3 = 120300;
+
+const int MAC_OS_VERSION_12_4 = 120400;
+
+const int MAC_OS_VERSION_12_5 = 120500;
+
+const int MAC_OS_VERSION_12_6 = 120600;
+
+const int MAC_OS_VERSION_12_7 = 120700;
 
 const int MAC_OS_VERSION_13_0 = 130000;
 
-const int __DRIVERKIT_19_0 = 190000;
+const int MAC_OS_VERSION_13_1 = 130100;
 
-const int __DRIVERKIT_20_0 = 200000;
+const int MAC_OS_VERSION_13_2 = 130200;
 
-const int __DRIVERKIT_21_0 = 210000;
+const int MAC_OS_VERSION_13_3 = 130300;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 130000;
+const int MAC_OS_VERSION_13_4 = 130400;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130300;
+const int MAC_OS_VERSION_13_5 = 130500;
+
+const int MAC_OS_VERSION_13_6 = 130600;
+
+const int MAC_OS_VERSION_14_0 = 140000;
+
+const int MAC_OS_VERSION_14_1 = 140100;
+
+const int MAC_OS_VERSION_14_2 = 140200;
+
+const int MAC_OS_VERSION_14_3 = 140300;
+
+const int MAC_OS_VERSION_14_4 = 140400;
+
+const int MAC_OS_VERSION_14_5 = 140500;
+
+const int MAC_OS_VERSION_15_0 = 150000;
+
+const int MAC_OS_VERSION_15_1 = 150100;
+
+const int MAC_OS_VERSION_15_2 = 150200;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 150000;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 150200;
 
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
@@ -14123,6 +14699,10 @@ const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_DEFAULT = 0;
 
 const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_ON = 1;
 
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_DEFAULT = 0;
+
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_ON = 1;
+
 const int WNOHANG = 1;
 
 const int WUNTRACED = 2;
@@ -14153,13 +14733,13 @@ const int __DARWIN_BIG_ENDIAN = 4321;
 
 const int __DARWIN_PDP_ENDIAN = 3412;
 
-const int __DARWIN_BYTE_ORDER = 1234;
-
 const int LITTLE_ENDIAN = 1234;
 
 const int BIG_ENDIAN = 4321;
 
 const int PDP_ENDIAN = 3412;
+
+const int __DARWIN_BYTE_ORDER = 1234;
 
 const int BYTE_ORDER = 1234;
 

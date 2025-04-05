@@ -7,7 +7,6 @@ import 'package:ffi/ffi.dart';
 
 import 'trust_wallet_core_ffi.dart';
 
-
 part 'extensions.dart';
 
 part 'core/mnemonic.dart';
@@ -17,6 +16,7 @@ part 'core/public_key.dart';
 part 'core/stored_key.dart';
 part 'core/any_address.dart';
 part 'core/base58.dart';
+part 'core/bech32.dart';
 part 'core/hash.dart';
 part 'core/bitcoin_address.dart';
 part 'core/any_signer.dart';
@@ -33,10 +33,10 @@ part 'core/coin_type_configuration.dart';
 part 'core/ethereum_abi_function.dart';
 part 'core/hrp.dart';
 
-
-
 class FlutterTrustWalletCore {
   static void init() {
-    walletCoreLib = Platform.isAndroid ? DynamicLibrary.open("libTrustWalletCore.so") : DynamicLibrary.process();
+    walletCoreLib = Platform.isAndroid
+        ? DynamicLibrary.open("libTrustWalletCore.so")
+        : DynamicLibrary.process();
   }
 }

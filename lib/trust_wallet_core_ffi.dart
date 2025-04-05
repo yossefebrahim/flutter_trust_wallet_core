@@ -28,6 +28,8 @@ part 'dart_impl/tw_bitcoin_address.dart';
 
 part 'dart_impl/tw_any_signer_impl.dart';
 
+part 'dart_impl/tw_bech32_impl.dart';
+
 part 'dart_impl/tw_bitcoin_script_impl.dart';
 
 part 'dart_impl/tw_purpose.dart';
@@ -69,6 +71,8 @@ part 'ffi_impl/tw_base32.dart';
 part 'ffi_impl/tw_base58.dart';
 
 part 'ffi_impl/tw_base64.dart';
+
+part 'ffi_impl/tw_bech32.dart';
 
 part 'ffi_impl/tw_bitcoin_address.dart';
 
@@ -176,7 +180,7 @@ part 'ffi_impl/tw_transaction_compiler.dart';
 
 part 'ffi_impl/tw_tron_message_signer.dart';
 
-
 late DynamicLibrary walletCoreLib;
 
-final Pointer<T> Function<T extends NativeType>(String symbolName) _lookup = walletCoreLib.lookup;
+final Pointer<T> Function<T extends NativeType>(String symbolName) _lookup =
+    walletCoreLib.lookup;
